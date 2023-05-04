@@ -13,7 +13,7 @@ function Hero() {
         className="w-full h-full object-cover clip-path brightness-75"
       />
       {displayCard ? (
-        <div className="absolute -bottom-6 left-1/2 bg-gray-700 shadow-lg rounded text-center p-4 transition-all move-up -translate-x-1/2">
+        <div className="absolute w-3/4 sm:w-auto bottom-32 sm:-bottom-6 left-1/2 bg-gray-700 shadow-lg rounded text-center p-4 transition-all move-up-absolute -translate-x-1/2">
           <h1 className="text-2xl font-bold mb-3">
             Lorem ipsum dolor sit amet consectetur
           </h1>

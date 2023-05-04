@@ -13,15 +13,32 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
+.move-up-absolute {
+  animation: move-absolute 1s;
+}
+
+@keyframes move-absolute {
+  0% {
+    transform: translate(-50%, 50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
 .move-up {
-  animation: move-up 500ms;
+  animation: move-up 1s;
 }
 
 @keyframes move-up {
   0% {
-    transform: translate(-50%, 50px);
+    transform: translate(0, 50px);
+    opacity: 0;
   }
   100% {
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }
