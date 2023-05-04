@@ -13,17 +13,17 @@ function Hero() {
         className="w-full h-full object-cover clip-path brightness-75"
       />
       {displayCard ? (
-        <div className="absolute w-3/4 sm:w-auto bottom-32 sm:-bottom-6 left-1/2 bg-gray-700 shadow-lg rounded text-center p-4 transition-all move-up-absolute -translate-x-1/2">
-          <h1 className="text-2xl font-bold mb-3">
-            Lorem ipsum dolor sit amet consectetur
+        <div className="absolute w-3/4 sm:w-auto flex flex-col gap-4 bottom-32 sm:-bottom-6 left-1/2 bg-gray-700 shadow-lg rounded text-center p-4 transition-all move-up-hero-section -translate-x-1/2">
+          <h1 className="text-2xl font-bold">
+            Delicious Food, Delivered To You
           </h1>
           <p>
-            Excepturi explicabo veniam in? Omnis ut aliquid officiis
-            necessitatibus iusto soluta
+            Choose your favorite meal from our board selection of available
+            meals and enjoy a delicious lunch or dinner at home
           </p>
           <p>
-            quibusdam aperiam voluptatem atque molestias, vel ab dicta nostrum
-            repellendus perspiciatis?
+            All our meals are cooked with high-quality ingredients, just-in-time
+            and of course by experienced chefs!
           </p>
         </div>
       ) : null}
