@@ -17,6 +17,7 @@ function Item({ name, description, price }) {
       description,
       price,
       quantity,
+      addedAt: new Date(),
     };
     cartContext.dispatchCart({ type: "ADD_TO_CART", item });
   };

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Item from "./Item";
+import CartContext from "../../../../context/Cart-context";
 
 function CartModal({ toggleModal }) {
+  const { cartState, dispatchCart } = useContext(CartContext);
   return (
     <>
       <div
@@ -10,9 +12,9 @@ function CartModal({ toggleModal }) {
       />
       <section className="w-1/2 h-1/2 bg-white fixed top-1/2 left-1/2 p-5 -translate-x-1/2 -translate-y-1/2 rounded-md move-up-modal z-20">
         <ul className="flex flex-col">
-          <Item />
-          <Item />
-          <Item />
+          {cartState.items.map(({ name, price, quantity, addedAt }) => (
+            <Item key={addedAt} name={name} price={price} quantity={quantity} />
+          ))}
         </ul>
         <div className="flex justify-between items-center font-bold text-2xl py-1">
           <p>total amount</p>
