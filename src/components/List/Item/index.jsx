@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Item() {
+function Item({ name, description, price }) {
   const [amount, setAmount] = useState(1);
 
   const handleChange = (e) => {
@@ -11,9 +11,9 @@ function Item() {
   return (
     <li className="flex sm:items-center flex-col sm:flex-row justify-between border-b border-gray-200 py-4 last-of-type:border-none">
       <div>
-        <p className="font-bold">Suchi</p>
-        <em className="block">fis and veggis</em>
-        <strong className="text-orange-700">$22.99</strong>
+        <p className="font-bold">{name}</p>
+        <em className="block">{description}</em>
+        <strong className="text-orange-700">${price}</strong>
       </div>
       <div>
         <div className="flex justify-end">
