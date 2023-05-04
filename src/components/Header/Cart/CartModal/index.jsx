@@ -14,14 +14,18 @@ function CartModal({ toggleModal }) {
           <Item />
           <Item />
         </ul>
+        <div className="flex justify-between items-center font-bold text-2xl py-1">
+          <p>totla amount</p>
+          <span>$300</span>
+        </div>
         <div className="flex justify-end items-center gap-3 mt-2">
           <button
             onClick={toggleModal}
-            className="px-6 py-2 rounded-full border border-orange-700 text-orange-700 bg-white active:scale-[0.98] hover:scale-[1.02] transition-all "
+            className="px-6 py-2 rounded-full border border-orange-700 text-orange-700 bg-white active:scale-[0.98] transition-all "
           >
             Close
           </button>
-          <button className="px-6 py-2 rounded-full border border-orange-700 bg-orange-700   active:scale-[0.98] hover:[1.02] transition-all text-white">
+          <button className="px-6 py-2 rounded-full border border-orange-700 bg-orange-700 active:scale-[0.98] transition-all text-white">
             Place Order
           </button>
         </div>

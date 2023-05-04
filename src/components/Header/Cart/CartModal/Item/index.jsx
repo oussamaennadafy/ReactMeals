@@ -19,10 +19,10 @@ function Item() {
         </div>
       </div>
       <div className="flex items-center justify-between gap-2">
-        <button className="w-16 px-5 py-1 border-2 rounded-lg font-bold text-xl border-orange-700 text-orange-700 transition-all hover:scale-[1.03] active:scale-100">
+        <button className="w-16 px-5 py-1 border-2 rounded-lg font-bold text-xl hover:bg-orange-700 hover:text-white border-orange-700 text-orange-700 transition-all active:scale-95">
           +
         </button>
-        <button className="w-16 px-5 py-1 border-2 rounded-lg font-bold text-xl border-orange-700 text-orange-700 transition-all hover:scale-[1.03] active:scale-100">
+        <button className="w-16 px-5 py-1 border-2 rounded-lg font-bold text-xl hover:bg-orange-700 hover:text-white border-orange-700 text-orange-700 transition-all active:scale-95">
           -
         </button>
       </div>
