@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { createPortal } from "react-dom";
 import CartModal from "./../Cart/CartModal";
 
+import CartContext from "./../../../context/Cart-context";
+
 function Cart() {
+  const cartContext = useContext(CartContext);
   const [displayModal, setDisplayModal] = useState(false);
   const toggleModal = () => {
     setDisplayModal((prevState) => !prevState);
@@ -19,7 +22,9 @@ function Cart() {
           className="w-5"
         />
         <p className="">Your Cart</p>
-        <span className="px-4 py-1 rounded-full bg-orange-700">2</span>
+        <span className="px-4 py-1 rounded-full bg-orange-700">
+          {cartContext.cartState?.items.length}
+        </span>
       </button>
       {displayModal &&
         createPortal(

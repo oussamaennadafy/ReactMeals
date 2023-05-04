@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import CartContext from "../../../context/Cart-context";
 
 function Item({ name, description, price }) {
-  const [amount, setAmount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+  const cartContext = useContext(CartContext);
 
   const handleChange = (e) => {
     const { value } = e.target;
     if (/[^1-9]/.test(value)) return;
-    setAmount(value);
+    setQuantity(value);
+  };
+
+  const addToCart = () => {
+    const item = {
+      name,
+      description,
+      price,
+      quantity,
+    };
+    cartContext.dispatchCart({ type: "ADD_TO_CART", item });
   };
   return (
     <li className="flex sm:items-center flex-col sm:flex-row justify-between border-b border-gray-200 py-4 last-of-type:border-none">
@@ -18,16 +30,19 @@ function Item({ name, description, price }) {
       <div>
         <div className="flex justify-end">
           <p className="inline-block mr-2 font-bold ml-auto flex-1 text-end">
-            Amount
+            Quantity
           </p>
           <input
             className="border border-gray-300 w-14 rounded px-1 ml-auto"
             type="number"
-            value={amount}
+            value={quantity}
             onChange={handleChange}
           />
         </div>
-        <button className="block ml-auto px-5 py-[2px] text-white bg-orange-800 rounded-full mt-2">
+        <button
+          onClick={addToCart}
+          className="block ml-auto px-5 py-[2px] text-white bg-orange-800 rounded-full mt-2"
+        >
           + Add
         </button>
       </div>

@@ -15,7 +15,7 @@ function CartModal({ toggleModal }) {
           <Item />
         </ul>
         <div className="flex justify-between items-center font-bold text-2xl py-1">
-          <p>totla amount</p>
+          <p>total amount</p>
           <span>$300</span>
         </div>
         <div className="flex justify-end items-center gap-3 mt-2">
