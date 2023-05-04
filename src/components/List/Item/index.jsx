@@ -18,8 +18,10 @@ function Item({ name, description, price }) {
       price,
       quantity,
       addedAt: new Date(),
+      id: Date.now(),
     };
     cartContext.dispatchCart({ type: "ADD_TO_CART", item });
+    setQuantity(1);
   };
   return (
     <li className="flex sm:items-center flex-col sm:flex-row justify-between border-b border-gray-200 py-4 last-of-type:border-none">
