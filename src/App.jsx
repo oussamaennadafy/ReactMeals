@@ -22,12 +22,14 @@ function App() {
         const itemToIncrease = state.items.find(
           (item) => item.id === action.id
         );
+        console.log(itemToIncrease);
         itemToIncrease.quantity++;
         return { ...state };
       case "DECREASE_QUANTITY":
         const itemToDecrease = state.items.find(
           (item) => item.id === action.id
         );
+        console.log(itemToDecrease);
         if (itemToDecrease.quantity === 1)
           return {
             ...state,
