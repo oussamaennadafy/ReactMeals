@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Item from "./Item";
 import CartContext from "../../../../context/Cart-context";
 
 function CartModal({ toggleModal }) {
-  const { cartState, dispatchCart } = useContext(CartContext);
+  const { cartState } = useContext(CartContext);
   const PlaceOrder = () => {
     console.log("Ordring...");
   };

@@ -6,9 +6,7 @@ function Item({ name, description, price }) {
   const cartContext = useContext(CartContext);
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    if (/[^1-9]/.test(value)) return;
-    setQuantity(value);
+    if (/[1-9]/.test(e.target.value)) setQuantity(e.target.value);
   };
 
   const addToCart = () => {

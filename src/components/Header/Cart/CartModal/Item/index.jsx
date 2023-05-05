@@ -2,14 +2,12 @@ import React, { useContext } from "react";
 import CartContext from "../../../../../context/Cart-context";
 
 function Item({ name, price, quantity, id }) {
-  const { cartState, dispatchCart } = useContext(CartContext);
+  const { dispatchCart } = useContext(CartContext);
 
   const increaseQuantity = () => {
-    // console.log(id);
     dispatchCart({ type: "INCREASE_QUANTITY", id });
   };
   const decreaseQuantity = () => {
-    // console.log(id);
     dispatchCart({ type: "DECREASE_QUANTITY", id });
   };
   return (
