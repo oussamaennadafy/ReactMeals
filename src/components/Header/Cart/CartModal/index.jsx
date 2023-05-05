@@ -13,13 +13,14 @@ function CartModal({ toggleModal }) {
         onClick={toggleModal}
         className="w-screen h-screen fixed top-0 left-0 bg-black opacity-50 z-10"
       />
-      <section className="w-1/2 h-1/2 bg-white flex flex-col fixed top-1/2 left-1/2 p-5 -translate-x-1/2 -translate-y-1/2 rounded-md move-up-modal z-20">
+      <section className="w-11/12 sm:w-3/4 md:1/2 h-1/2 bg-white flex flex-col fixed top-1/2 left-1/2 p-5 -translate-x-1/2 -translate-y-1/2 rounded-md move-up-modal z-20">
         <ul className="flex flex-col overflow-auto flex-1">
           {cartState.items.length ? (
-            cartState.items.map(({ name, price, quantity, id }) => (
+            cartState.items.map(({ name, price, quantity, id, addedAt }) => (
               <Item
                 key={id}
                 id={id}
+                addedAt={addedAt}
                 name={name}
                 price={price}
                 quantity={quantity}
