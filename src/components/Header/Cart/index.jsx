@@ -19,6 +19,7 @@ function Cart() {
     setTimeout(() => {
       setAnimate(false);
     }, 800);
+    return () => setAnimate(false);
   }, [cartState.items.length]);
   return (
     <>

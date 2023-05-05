@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useId } from "react";
 import CartContext from "../../../../../context/Cart-context";
 
 function Item({ name, price, quantity, id }) {
