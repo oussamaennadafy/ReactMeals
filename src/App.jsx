@@ -10,13 +10,15 @@ function App() {
   const cartReducer = (state, action) => {
     switch (action.type) {
       case "ADD_TO_CART":
-        const items = [...state.items, action.item];
+        const prevState = JSON.parse(localStorage.getItem("cart")) || state;
+        const items = [...prevState.items, action.item];
         const newCartAfterAdd = {
-          ...state,
+          ...prevState,
           items,
-          totalAmount:
-            items.reduce((prev, curr) => prev + curr.price, 0) *
-            action.item.quantity,
+          totalAmount: items.reduce(
+            (prev, curr) => prev + curr.price * curr.quantity,
+            0
+          ),
         };
         localStorage.setItem("cart", JSON.stringify(newCartAfterAdd));
         return newCartAfterAdd;
@@ -61,7 +63,6 @@ function App() {
   };
   const cartInitializer = () => {
     const cart = localStorage.getItem("cart");
-    // console.log(JSON.parse(cart));
     if (cart) return JSON.parse(cart);
     return initialCart;
   };
