@@ -5,7 +5,7 @@ import CartModal from "./../Cart/CartModal";
 import CartContext from "./../../../context/Cart-context";
 
 function Cart() {
-  const cartContext = useContext(CartContext);
+  const { cartState } = useContext(CartContext);
   const [displayModal, setDisplayModal] = useState(false);
   const toggleModal = () => {
     setDisplayModal((prevState) => !prevState);
@@ -23,7 +23,7 @@ function Cart() {
         />
         <p className="">Your Cart</p>
         <span className="px-4 py-1 rounded-full bg-orange-700">
-          {cartContext.cartState?.items.length}
+          {cartState.items.length}
         </span>
       </button>
       {displayModal &&

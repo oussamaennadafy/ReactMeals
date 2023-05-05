@@ -22,22 +22,25 @@ function App() {
         const itemToIncrease = state.items.find(
           (item) => item.id === action.id
         );
-        console.log(itemToIncrease);
         itemToIncrease.quantity++;
-        return { ...state };
+        return {
+          ...state,
+          totalAmount: state.totalAmount + itemToIncrease.price,
+        };
       case "DECREASE_QUANTITY":
         const itemToDecrease = state.items.find(
           (item) => item.id === action.id
         );
-        console.log(itemToDecrease);
         if (itemToDecrease.quantity === 1)
           return {
             ...state,
+            totalAmount: state.totalAmount - itemToDecrease.price,
             items: state.items.filter((item) => item.id !== action.id),
           };
         else itemToDecrease.quantity--;
         return {
           ...state,
+          totalAmount: state.totalAmount - itemToDecrease.price,
         };
     }
   };
