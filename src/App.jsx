@@ -5,6 +5,7 @@ import List from "./components/List";
 
 // context
 import CartContext from "./context/Cart-context";
+import Footer from "./components/Footer";
 
 function App() {
   const cartReducer = (state, action) => {
@@ -73,10 +74,11 @@ function App() {
   );
   return (
     <CartContext.Provider value={{ cartState, dispatchCart }}>
-      <div className="bg-gray-500 pb-20">
+      <div className="bg-gray-500">
         <Header />
         <Hero />
         <List />
+        <Footer />
       </div>
     </CartContext.Provider>
   );
