@@ -30,7 +30,7 @@ function Cart() {
         }`}
       >
         <img
-          src="./../../src/assets/cart.png"
+          src="./assets/cart.png"
           alt="shopping cart image"
           className="w-5"
         />

@@ -5,7 +5,7 @@ function Hero() {
   return (
     <section className="h-[50vh] relative text-white">
       <img
-        src="./src/assets/hero-min.jpg"
+        src="./assets/hero-min.jpg"
         alt="food image"
         onLoad={() => {
           setDisplayCard((prevState) => !prevState);
