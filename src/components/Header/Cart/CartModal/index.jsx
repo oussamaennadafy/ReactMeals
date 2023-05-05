@@ -4,6 +4,9 @@ import CartContext from "../../../../context/Cart-context";
 
 function CartModal({ toggleModal }) {
   const { cartState, dispatchCart } = useContext(CartContext);
+  const PlaceOrder = () => {
+    console.log("Ordring...");
+  };
   return (
     <>
       <div
@@ -39,7 +42,10 @@ function CartModal({ toggleModal }) {
           >
             Close
           </button>
-          <button className="px-6 py-2 rounded-full border border-orange-700 bg-orange-700 active:scale-[0.98] transition-all text-white">
+          <button
+            onClick={PlaceOrder}
+            className="px-6 py-2 rounded-full border border-orange-700 bg-orange-700 active:scale-[0.98] transition-all text-white"
+          >
             Place Order
           </button>
         </div>
