@@ -9,7 +9,7 @@ function Footer() {
         className="underline"
         href="https://www.linkedin.com/in/oussama-ennadafy/"
       >
-        oussama
+        oussama ennadafy
       </a>
       , and tested by{" "}
       <a
@@ -17,7 +17,7 @@ function Footer() {
         className="underline"
         href="https://www.linkedin.com/in/ayoub-akraou-051a431a8/"
       >
-        Ayoub
+        Ayoub akraou
       </a>
     </div>
   );

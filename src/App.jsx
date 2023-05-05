@@ -4,7 +4,6 @@ import Hero from "./components/Hero";
 import List from "./components/List";
 import Footer from "./components/Footer";
 
-// context
 import { CartContextProvider } from "./context/Cart-context";
 
 function App() {

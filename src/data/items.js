@@ -11,7 +11,7 @@ export default [
   },
   {
     name: "tajin",
-    description: "tradutional moroccan food",
+    description: "mtaybah chaimaa",
     price: 30,
   },
   {
