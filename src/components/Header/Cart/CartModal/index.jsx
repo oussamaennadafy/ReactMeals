@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Item from "./Item";
+import Item from "./Order";
 import CartContext from "../../../../context/Cart-context";
 
 function CartModal({ toggleModal }) {

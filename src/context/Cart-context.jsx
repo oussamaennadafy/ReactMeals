@@ -50,11 +50,13 @@ const cartReducer = (state, action) => {
       }
   }
 };
+
 const initialCart = {
   items: [],
   totalAmount: 0,
   setItems: () => {},
 };
+
 const cartInitializer = () => {
   const cart = localStorage.getItem("cart");
   if (cart) return JSON.parse(cart);

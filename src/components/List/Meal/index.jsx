@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import CartContext from "../../../context/Cart-context";
 
-function Item({ name, description, price }) {
+function Meal({ name, description, price }) {
   const [quantity, setQuantity] = useState(1);
   const [validQuantity, setValidQuantity] = useState(true);
   const cartContext = useContext(CartContext);
@@ -56,4 +56,4 @@ function Item({ name, description, price }) {
   );
 }
 
-export default Item;
+export default Meal;
