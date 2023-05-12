@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Meal from "./Meal";
 import meals from "./../../data/meals";
 

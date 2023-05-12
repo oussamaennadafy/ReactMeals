@@ -1,16 +1,21 @@
 import React, { useState, useContext, useEffect } from "react";
 import { createPortal } from "react-dom";
 import CartModal from "./../Cart/CartModal";
+import CheckoutModal from "./CheckOutModal";
 
 import CartContext from "./../../../context/Cart-context";
 
 function Cart() {
   const { cartState } = useContext(CartContext);
-  const [displayModal, setDisplayModal] = useState(false);
+  const [displayCartModal, setDisplayCartModal] = useState(false);
+  const [displayCheckoutModal, setDisplayCheckoutModal] = useState(false);
   const [animate, setAnimate] = useState(false);
 
-  const toggleModal = () => {
-    setDisplayModal((prevState) => !prevState);
+  const toggleCartModal = () => {
+    setDisplayCartModal((prevState) => !prevState);
+  };
+  const toggleCheckoutModal = () => {
+    setDisplayCheckoutModal((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -24,7 +29,7 @@ function Cart() {
   return (
     <>
       <button
-        onClick={toggleModal}
+        onClick={toggleCartModal}
         className={`flex items-center justify-between gap-3 px-3 sm:px-7 py-2 bg-orange-900 rounded-full ${
           animate ? "animate-scale" : ""
         }`}
@@ -39,9 +44,17 @@ function Cart() {
           {cartState.items.length}
         </span>
       </button>
-      {displayModal &&
+      {displayCartModal &&
         createPortal(
-          <CartModal toggleModal={toggleModal} />,
+          <CartModal
+            toggleCartModal={toggleCartModal}
+            toggleCheckoutModal={toggleCheckoutModal}
+          />,
+          document.getElementById("root")
+        )}
+      {displayCheckoutModal &&
+        createPortal(
+          <CheckoutModal toggleModal={toggleCheckoutModal} />,
           document.getElementById("root")
         )}
     </>

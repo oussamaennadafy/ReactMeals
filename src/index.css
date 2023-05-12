@@ -32,17 +32,17 @@ body {
   }
 }
 
-.move-up-modal {
-  animation: move-modal 0.5s;
+.scale-modal {
+  animation: scale-modal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes move-modal {
+@keyframes scale-modal {
   0% {
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
   }
   100% {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 }

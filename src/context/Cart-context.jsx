@@ -31,7 +31,7 @@ const cartReducer = (state, action) => {
       return newCartAfterIncreas;
     case "DECREASE_QUANTITY":
       const itemToDecrease = state.items.find((item) => item.id === action.id);
-      if (itemToDecrease.quantity === 1) {
+      if (itemToDecrease.quantity <= 1) {
         const cartAfterDeleteItem = {
           ...state,
           totalAmount: state.totalAmount - itemToDecrease.price,
