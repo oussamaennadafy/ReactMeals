@@ -31,9 +31,12 @@ function Meal({ name, description, price }) {
       </div>
       <form onSubmit={addToCart}>
         <div className="flex justify-end">
-          <p className="inline-block mr-2 font-bold ml-auto flex-1 text-end">
+          <label
+            htmlFor="quantity"
+            className="inline-block mr-2 font-bold ml-auto flex-1 text-end"
+          >
             Quantity
-          </p>
+          </label>
           <input
             className={`border ${
               validQuantity
@@ -42,6 +45,8 @@ function Meal({ name, description, price }) {
             } w-14 rounded px-1 ml-auto`}
             type="number"
             value={quantity}
+            name="quantity"
+            id="quantity"
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
