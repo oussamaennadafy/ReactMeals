@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { createPortal } from "react-dom";
 import CartModal from "./../Cart/CartModal";
-import CheckoutModal from "./CheckOutModal";
+import CheckoutModal from "./CheckoutModal";
 
 import CartContext from "./../../../context/Cart-context";
 

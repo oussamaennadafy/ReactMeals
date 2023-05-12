@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
 import Item from "./Order";
-import CartContext from "../../../../context/Cart-context";
-import ModalWrapper from "../../../../utils/ModalWrapper";
+import CartContext from "./../../../../context/Cart-context";
+import ModalWrapper from "./../../../../utils/ModalWrapper";
 
 function CartModal({ toggleCartModal, toggleCheckoutModal }) {
   const { cartState } = useContext(CartContext);
   const PlaceOrder = () => {
     toggleCartModal();
     toggleCheckoutModal();
-    console.log("Ordring...");
   };
   return (
-    <ModalWrapper toggleCartModal={toggleCartModal}>
+    <ModalWrapper toggleModal={toggleCartModal}>
       <ul className="flex flex-col overflow-auto flex-1">
         {cartState.items.length ? (
           cartState.items.map(({ name, price, quantity, id, addedAt }) => (
