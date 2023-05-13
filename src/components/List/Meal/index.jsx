@@ -46,7 +46,6 @@ function Meal({ name, description, price }) {
             type="number"
             value={quantity}
             name="quantity"
-            id="quantity"
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
