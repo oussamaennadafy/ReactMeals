@@ -10,6 +10,13 @@ body {
   overflow-x: hidden;
 }
 
+.toster::before {
+  height: calc(100% + 2px);
+  top: -1px;
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+}
+
 .clip-path-mobile {
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
@@ -103,5 +110,27 @@ body {
 @keyframes pulseLate {
   60% {
     opacity: 0.5;
+  }
+}
+
+.toaster-slide-in {
+  animation: toaster-slide-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes toaster-slide-in {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(440px);
+  }
+}
+
+.toaster-slide-out {
+  animation: toaster-slide-out 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes toaster-slide-out {
+  0% {
   }
 }

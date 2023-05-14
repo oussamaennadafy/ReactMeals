@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import ModalWrapper from "./../../../../utils/ModalWrapper";
 import cartContext from "./../../../../context/Cart-context";
 import Loader from "./../../../../utils/Loader";
+import toasterContext from "../../../../context/Toaster-Context";
 
 function CheckoutModal({ toggleModal }) {
   const [name, setName] = useState("");
@@ -9,7 +10,8 @@ function CheckoutModal({ toggleModal }) {
   const [error, setError] = useState("");
   const [loader, setLoader] = useState(false);
 
-  const { cartState } = useContext(cartContext);
+  const { cartState, dispatchCart } = useContext(cartContext);
+  const { dispatchToaster } = useContext(toasterContext);
 
   const sendOrderToServer = (name, address, cart) => {
     setLoader(true);
@@ -25,11 +27,16 @@ function CheckoutModal({ toggleModal }) {
       }),
     })
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        if (data.status !== "success") throw new Error(data.message);
+        dispatchCart({ type: "RESET" });
+        dispatchToaster({
+          type: "SHOW",
+          status: "success",
+          message: "order placed successfully",
+        });
         toggleModal();
       })
       .catch((err) => {
@@ -42,8 +49,8 @@ function CheckoutModal({ toggleModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!name.trim() || !address.trim())
-    //   return setError("please fill all inputes");
+    if (!name.trim() || !address.trim())
+      return setError("please fill all inputes");
     sendOrderToServer(name, address, cartState);
   };
 

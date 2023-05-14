@@ -1,14 +1,23 @@
 import React, { useState, useContext } from "react";
 import CartContext from "../../../context/Cart-context";
+import toasterContext from "../../../context/Toaster-Context";
 
 function Meal({ name, description, price }) {
   const [quantity, setQuantity] = useState(1);
   const [validQuantity, setValidQuantity] = useState(true);
   const cartContext = useContext(CartContext);
+  const { dispatchToaster } = useContext(toasterContext);
 
   const addToCart = (e) => {
     e.preventDefault();
-    if (/[^1-9]/.test(quantity) || !quantity) return setValidQuantity(false);
+    if (/[^1-9]/.test(quantity) || !quantity) {
+      dispatchToaster({
+        type: "SHOW",
+        status: "fail",
+        message: "invalid quantity",
+      });
+      return setValidQuantity(false);
+    }
 
     const item = {
       name,

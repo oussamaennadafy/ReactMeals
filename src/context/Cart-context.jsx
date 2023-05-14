@@ -1,13 +1,15 @@
 import { createContext, useReducer } from "react";
 
-const CartContext = createContext({
+const initialCartState = {
   items: [],
   totalAmount: 0,
-});
+};
+
+const CartContext = createContext(initialCartState);
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TO_CART":
+    case "ADD_TO_CART": {
       const prevState = JSON.parse(localStorage.getItem("cart")) || state;
       // console.log(prevState);
       const itemAlreadyInCart = prevState.items.filter(
@@ -32,7 +34,8 @@ const cartReducer = (state, action) => {
       };
       localStorage.setItem("cart", JSON.stringify(newCartAfterAdd));
       return newCartAfterAdd;
-    case "INCREASE_QUANTITY":
+    }
+    case "INCREASE_QUANTITY": {
       const itemToIncrease = state.items.find((item) => item.id === action.id);
       itemToIncrease.quantity++;
       const newCartAfterIncreas = {
@@ -41,7 +44,8 @@ const cartReducer = (state, action) => {
       };
       localStorage.setItem("cart", JSON.stringify(newCartAfterIncreas));
       return newCartAfterIncreas;
-    case "DECREASE_QUANTITY":
+    }
+    case "DECREASE_QUANTITY": {
       const itemToDecrease = state.items.find((item) => item.id === action.id);
       if (itemToDecrease.quantity <= 1) {
         const cartAfterDeleteItem = {
@@ -60,6 +64,11 @@ const cartReducer = (state, action) => {
         localStorage.setItem("cart", JSON.stringify(cartAfterDecrease));
         return cartAfterDecrease;
       }
+    }
+    case "RESET": {
+      localStorage.setItem("cart", JSON.stringify(initialCartState));
+      return initialCartState;
+    }
   }
 };
 
