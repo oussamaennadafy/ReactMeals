@@ -11,7 +11,7 @@ function CartModal({ toggleCartModal, toggleCheckoutModal }) {
   };
   return (
     <ModalWrapper toggleModal={toggleCartModal}>
-      <ul className="flex flex-col overflow-auto flex-1">
+      <ul className="flex flex-col overflow-auto flex-1 min-h-[40vh]">
         {cartState.items.length ? (
           cartState.items.map(({ name, price, quantity, id, addedAt }) => (
             <Item
