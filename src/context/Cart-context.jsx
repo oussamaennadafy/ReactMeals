@@ -16,6 +16,7 @@ const cartReducer = (state, action) => {
       let items;
       if (itemAlreadyInCart.length) {
         itemAlreadyInCart[0].quantity += action.item.quantity;
+        itemAlreadyInCart[0].addedAt = new Date();
         items = [...prevState.items];
       } else {
         items = [...prevState.items, action.item];
