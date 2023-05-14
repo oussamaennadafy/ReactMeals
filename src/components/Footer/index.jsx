@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-gray-700 py-6 text-center text-gray-300">
+    <footer className="bg-gray-700 py-6 text-center text-gray-300">
       made by{" "}
       <a
         target="_blank"
@@ -19,7 +19,7 @@ function Footer() {
       >
         Ayoub akraou
       </a>
-    </div>
+    </footer>
   );
 }
 

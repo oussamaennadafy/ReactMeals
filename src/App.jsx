@@ -12,7 +12,7 @@ function App() {
   return (
     <ToasterProvider>
       <CartContextProvider>
-        <div className="bg-gray-500">
+        <div className="bg-gray-500 min-h-screen">
           <Header />
           <Hero />
           <List />
