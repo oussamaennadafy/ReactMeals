@@ -9,7 +9,18 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       const prevState = JSON.parse(localStorage.getItem("cart")) || state;
-      const items = [...prevState.items, action.item];
+      // console.log(prevState);
+      const itemAlreadyInCart = prevState.items.filter(
+        (item) => item.name === action.item.name
+      );
+      let items;
+      if (itemAlreadyInCart.length) {
+        itemAlreadyInCart[0].quantity += action.item.quantity;
+        items = [...prevState.items];
+      } else {
+        items = [...prevState.items, action.item];
+      }
+      console.log(items);
       const newCartAfterAdd = {
         ...prevState,
         items,

@@ -24,17 +24,26 @@ function CheckoutModal({ toggleModal }) {
         address,
       }),
     })
-      .then((res) => res.json())
-      .then(() => {
-        setLoader(false);
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
         toggleModal();
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoader(false);
       });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !address.trim())
-      return setError("please fill all inputes");
+    // if (!name.trim() || !address.trim())
+    //   return setError("please fill all inputes");
     sendOrderToServer(name, address, cartState);
   };
 
