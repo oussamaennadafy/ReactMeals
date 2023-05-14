@@ -11,7 +11,6 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
       const prevState = JSON.parse(localStorage.getItem("cart")) || state;
-      // console.log(prevState);
       const itemAlreadyInCart = prevState.items.filter(
         (item) => item.name === action.item.name
       );
@@ -23,7 +22,6 @@ const cartReducer = (state, action) => {
       } else {
         items = [...prevState.items, action.item];
       }
-      console.log(items);
       const newCartAfterAdd = {
         ...prevState,
         items,
