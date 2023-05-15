@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import CartContext from "../../../context/Cart-context";
 import toasterContext from "../../../context/Toaster-Context";
 
@@ -30,6 +30,11 @@ function Meal({ name, description, price }) {
     cartContext.dispatchCart({ type: "ADD_TO_CART", item });
     setQuantity(1);
     setValidQuantity(true);
+    dispatchToaster({
+      type: "SHOW",
+      status: "success",
+      message: "item added to cart",
+    });
   };
   return (
     <li className="flex sm:items-center flex-col sm:flex-row justify-between border-b border-gray-200 py-4 last-of-type:border-none">

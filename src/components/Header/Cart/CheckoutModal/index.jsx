@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import ModalWrapper from "./../../../../utils/ModalWrapper";
 import cartContext from "./../../../../context/Cart-context";
 import Loader from "./../../../../utils/Loader";
 import toasterContext from "../../../../context/Toaster-Context";
 
+// eslint-disable-next-line react/prop-types
 function CheckoutModal({ toggleModal }) {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -15,7 +16,7 @@ function CheckoutModal({ toggleModal }) {
 
   const sendOrderToServer = (name, address, cart) => {
     setLoader(true);
-    fetch("http://192.168.1.111:8000/api/v1/orders", {
+    fetch("http://172.16.8.84:8000/api/v1/orders", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -56,6 +57,9 @@ function CheckoutModal({ toggleModal }) {
 
   return (
     <ModalWrapper className="" toggleModal={toggleModal}>
+      <button onClick={toggleModal} className="absolute right-6 top-5">
+        <img className="w-5 h-5" src="./assets/close.png" alt="close modal" />
+      </button>
       <h2 className="text-2xl text-center">Checkout</h2>
       <form
         className="w-3/4 flex flex-col mx-auto gap-3"

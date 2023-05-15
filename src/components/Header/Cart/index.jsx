@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { createPortal } from "react-dom";
 import CartModal from "./../Cart/CartModal";
 import CheckoutModal from "./CheckoutModal";
@@ -25,7 +25,7 @@ function Cart() {
       setAnimate(false);
     }, 800);
     return () => setAnimate(false);
-  }, [cartState.items.length]);
+  }, [cartState.items]);
   return (
     <>
       <button

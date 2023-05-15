@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Meal from "./Meal";
 // import meals from "./../../data/meals";
 
@@ -8,7 +8,7 @@ function List() {
   const [error, setError] = useState("");
   useEffect(() => {
     setLoader(true);
-    fetch("http://192.168.1.111:8000/api/v1/meals")
+    fetch("http://172.16.8.84:8000/api/v1/meals")
       .then((res) => res.json())
       .then((data) => setMeals(data.body.meals))
       .catch((err) => setError(err.message))
