@@ -9,7 +9,7 @@ function List() {
   useEffect(() => {
     setLoader(true);
     const fetchAbortController = new AbortController();
-    fetch("http://192.168.184.126:8000/api/v1/meals", {
+    fetch("https://react-meals-api.onrender.com/api/v1/meals", {
       signal: fetchAbortController.signal,
     })
       .then((res) => {

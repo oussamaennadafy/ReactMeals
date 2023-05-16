@@ -16,7 +16,7 @@ function CheckoutModal({ toggleModal }) {
 
   const sendOrderToServer = (name, address, cart) => {
     setLoader(true);
-    fetch("http://172.16.8.84:8000/api/v1/orders", {
+    fetch("https://react-meals-api.onrender.com/api/v1/orders", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
