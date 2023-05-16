@@ -1,5 +1,3 @@
-import React from "react";
-
 function ModalWrapper({ children, toggleModal, className }) {
   return (
     <>

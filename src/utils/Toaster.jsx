@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import toasterContext from "../context/Toaster-Context";
 
 function Toaster() {
